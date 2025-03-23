@@ -247,4 +247,61 @@ body {
   color: #FFFFFF;
 }
 
+.motivation__wrapper {
+  box-shadow: 0 0 40px 0 rgba(0, 0, 0, 0.06);
+  padding: 10px 30px 3px;
+}
+.motivation__heading {
+  font-weight: 600;
+  font-size: 40px;
+  line-height: 126%;
+  letter-spacing: 0.6px;
+  color: #444444;
+  text-align: center;
+  margin: 0 0 50px;
+}
+.motivation__heading_big {
+  font-size: 56px;
+  letter-spacing: 0.9px;
+  line-height: 100%;
+}
+.motivation__heading_highlight {
+  color: #A30C33;
+}
+.motivation__block {
+  padding: 70px 0 75px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+.motivation__block:last-child {
+  border-bottom: none;
+}
+.motivation__list {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  column-gap: 16px;
+}
+.motivation__element {
+  flex: 1;
+  max-width: 178px;
+  text-align: center;
+}
+.motivation__icon {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 110px;
+  height: 110px;
+  margin-bottom: 10px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.05);
+}
+.motivation__label {
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 110%;
+  letter-spacing: 0;
+  color: #444444;
+}
+
 /*# sourceMappingURL=main.css.map */
