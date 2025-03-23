@@ -86,6 +86,7 @@ body {
   font-size: 32px;
   line-height: 120%;
   letter-spacing: 0;
+  color: #444444;
   margin: 0;
 }
 
@@ -189,6 +190,61 @@ body {
   line-height: 150%;
   letter-spacing: 0;
   margin: 0;
+}
+
+.directions__wrapper {
+  padding: 100px 0;
+}
+.directions__heading {
+  font-weight: 600;
+  font-size: 56px;
+  line-height: 100%;
+  letter-spacing: 0.8px;
+  color: #444444;
+  margin: 0 0 55px;
+  text-align: center;
+}
+.directions__list {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  column-gap: 20px;
+  row-gap: 22px;
+}
+.directions__card {
+  width: calc(50% - 10px);
+}
+
+.direction-card {
+  position: relative;
+  overflow: hidden;
+}
+.direction-card:hover .direction-card__body {
+  top: 0;
+}
+.direction-card__body {
+  position: absolute;
+  top: 87%;
+  right: 0;
+  left: 0;
+  min-height: 100%;
+  padding: 28px 20px;
+  background: rgba(45, 54, 83, 0.6);
+}
+.direction-card__label {
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 100%;
+  letter-spacing: 0;
+  color: #FFFFFF;
+  margin-bottom: 20px;
+}
+.direction-card__description {
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 140%;
+  letter-spacing: 0;
+  color: #FFFFFF;
 }
 
 /*# sourceMappingURL=main.css.map */
