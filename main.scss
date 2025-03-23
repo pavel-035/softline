@@ -28,6 +28,15 @@ body {
   margin: 0;
 }
 
+.wrapper {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 1120px;
+  margin: 0 auto;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
 .img-box {
   font-size: 0;
   img {
@@ -50,11 +59,8 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
-
-    width: 100%;
-    max-width: 1110px;
-    padding: 30px 5px;
-    margin: 0 auto;
+    padding-top: 30px;
+    padding-bottom: 30px;
   }
 }
 
@@ -78,5 +84,32 @@ body {
       text-decoration: none;
       color: currentColor;
     }
+  }
+}
+
+.banner {
+  &__wrapper {
+    padding-top: 79px;
+    padding-bottom: 79px;
+  }
+  &__heading {
+    font-family: 'Proxima Nova Condensed Bold', serif;
+    font-weight: 700;
+    font-size: 56px;
+    line-height: 120%;
+    letter-spacing: 0;
+
+    color: $primary;
+    text-align: center;
+    margin: 0 0 29px;
+  }
+  &__description {
+    font-weight: 400;
+    font-size: 32px;
+    line-height: 120%;
+    letter-spacing: 0;
+
+    text-align: center;
+    margin: 0;
   }
 }
