@@ -37,10 +37,8 @@ body {
 .wrapper {
   box-sizing: border-box;
   width: 100%;
-  max-width: 1120px;
+  max-width: 1110px;
   margin: 0 auto;
-  padding-left: 5px;
-  padding-right: 5px;
 }
 
 .img-box {
@@ -95,6 +93,7 @@ body {
   &__wrapper {
     padding-top: 79px;
     padding-bottom: 75px;
+    text-align: center;
   }
   &__heading {
     font-family: 'Proxima Nova Condensed Bold', serif;
@@ -104,7 +103,6 @@ body {
     letter-spacing: 0;
 
     color: $primary;
-    text-align: center;
     margin: 0 0 29px;
   }
   &__description {
@@ -113,7 +111,6 @@ body {
     line-height: 120%;
     letter-spacing: 0;
 
-    text-align: center;
     margin: 0;
   }
 }
@@ -124,7 +121,8 @@ body {
   }
   &__body {
     max-width: 1190px;
-    margin: 90px auto 0;
+    margin: 0 auto;
+    padding: 90px 0 105px;
   }
 }
 
@@ -177,5 +175,54 @@ body {
   }
   &__icon {
     width: 24px;
+  }
+}
+
+.mission {
+  position: relative;
+  background: $primary;
+  padding: 140px 0;
+
+  &:before,
+  &:after {
+    content: '';
+
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 0;
+
+    width: 348.05px;
+    height: 376.95px;
+  }
+
+  &:before {
+    background: url("./assets/image/mission_pattern_left.png") no-repeat 50% 50%;
+    left: -24px;
+  }
+  &:after {
+    background: url("./assets/image/mission_pattern_right.png") no-repeat 50% 50%;
+    right: -25px;
+  }
+
+  &__wrapper {
+    position: relative;
+    z-index: 10;
+    color: $font-light;
+    text-align: center;
+  }
+  &__heading {
+    font-weight: 600;
+    font-size: 56px;
+    line-height: 100%;
+    letter-spacing: 0.9px;
+    margin: 0 0 40px;
+  }
+  &__prompt {
+    font-weight: 400;
+    font-size: 32px;
+    line-height: 150%;
+    letter-spacing: 0;
+    margin: 0;
   }
 }
