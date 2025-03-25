@@ -2,13 +2,7 @@ $primary: #A30C33;
 $font-dark: #444444;
 $font-light: #FFFFFF;
 
-@mixin font_menu {
-  font-family: 'Proxima Nova Condensed', serif;
-  font-weight: 600;
-  font-size: 18px;
-  letter-spacing: 0.3px;
-  line-height: 20px;
-}
+$breakpoint-mobile: 450px;
 
 @mixin drop_ul {
   padding: 0;
@@ -19,11 +13,6 @@ $font-light: #FFFFFF;
 @font-face {
   font-family: 'Proxima Nova Condensed';
   src: url('./assets/fonts/Proxima Nova Condensed/proximanovacond_regular.ttf') format('truetype');
-}
-
-@font-face {
-  font-family: 'Proxima Nova Condensed Bold';
-  src: url('./assets/fonts/Proxima Nova Condensed/proximanovacond_bold.ttf') format('truetype');
 }
 
 * {
@@ -37,8 +26,10 @@ body {
 .wrapper {
   box-sizing: border-box;
   width: 100%;
-  max-width: 1110px;
+  max-width: 1120px;
   margin: 0 auto;
+  padding-left: 5px;
+  padding-right: 5px;
 }
 
 .img-box {
@@ -51,8 +42,10 @@ body {
 .layout {
   &__wrapper {
     width: 100%;
-    max-width: 1250px;
+    max-width: 1280px;
     margin: 0 auto;
+    padding: 0 15px;
+    box-sizing: border-box;
   }
 }
 
@@ -63,8 +56,14 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    flex-wrap: wrap;
+    row-gap: 15px;
+
     padding-top: 30px;
     padding-bottom: 30px;
+  }
+  &__logo {
+    flex-shrink: 0;
   }
 }
 
@@ -74,10 +73,16 @@ body {
 
     display: flex;
     align-items: center;
+    flex-wrap: wrap;
     column-gap: 20px;
+    row-gap: 5px;
   }
   &__item {
-    @include font_menu;
+    font-family: 'Proxima Nova Condensed', serif;
+    font-weight: 600;
+    font-size: 18px;
+    letter-spacing: 0.3px;
+    line-height: 20px;
 
     color: $font-dark;
     cursor: pointer;
@@ -90,20 +95,19 @@ body {
 }
 
 .banner {
+  margin-top: 79px;
   &__wrapper {
-    padding-top: 79px;
-    padding-bottom: 75px;
     text-align: center;
   }
   &__heading {
-    font-family: 'Proxima Nova Condensed Bold', serif;
+    font-family: 'Proxima Nova Condensed', serif;
     font-weight: 700;
     font-size: 56px;
-    line-height: 120%;
-    letter-spacing: 0;
+    line-height: 116%;
+    letter-spacing: 1.5px;
 
     color: $primary;
-    margin: 0 0 29px;
+    margin: 0 0 30px;
   }
   &__description {
     font-weight: 400;
@@ -116,14 +120,38 @@ body {
   }
 }
 
-.map {
-  &__filter {
-    box-shadow: 0px 0px 40px 0px rgba(0, 0, 0, 0.06);
+.statistics {
+  display: none;
+  margin-top: 76px;
+  &__wrapper {
+    display: inline-flex;
+    justify-content: space-evenly;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    text-align: center;
+    row-gap: 26px;
   }
-  &__body {
-    max-width: 1190px;
-    margin: 0 auto;
-    padding: 90px 0 105px;
+  &__element {
+    max-width: 180px;
+  }
+  &__number {
+    font-weight: 600;
+    font-size: 39px;
+    line-height: 80%;
+    letter-spacing: 1px;
+    color: $primary;
+
+    margin-bottom: 3px;
+    &_sm {
+      font-size: 30px;
+      line-height: 100%;
+    }
+  }
+  &__label {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 129%;
+    letter-spacing: 0;
   }
 }
 
@@ -133,16 +161,33 @@ body {
     justify-content: space-between;
     align-items: center;
   }
+  &__dropdown {
+    flex-shrink: 0;
+    margin-right: 70px;
+  }
   &__list {
     @include drop_ul;
 
     display: flex;
     align-items: center;
     column-gap: 30px;
+
+    max-width: 100%;
+    overflow: auto;
+
+    &::-webkit-scrollbar {
+      opacity: 0;
+      height: 0;
+    }
   }
   &__item {
-    @include font_menu;
+    font-family: 'Proxima Nova Condensed', serif;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 20px;
     letter-spacing: 0.35px;
+
+    white-space: nowrap;
     color: $font-dark;
 
     cursor: pointer;
@@ -156,6 +201,17 @@ body {
       color: $primary;
       border-color: $primary;
     }
+  }
+}
+
+.map {
+  margin-top: 77px;
+  &__filter {
+    box-shadow: 0 0 40px 0 rgba(0, 0, 0, 0.06);
+  }
+  &__body {
+    max-width: 1190px;
+    margin: 89px auto 0;
   }
 }
 
@@ -181,8 +237,10 @@ body {
 
 .mission {
   position: relative;
+  overflow: hidden;
   background: $primary;
-  padding: 140px 0;
+  padding: 140px 5px;
+  margin-top: 105px;
 
   &:before,
   &:after {
@@ -229,9 +287,7 @@ body {
 }
 
 .directions {
-  &__wrapper {
-    padding: 100px 0;
-  }
+  margin-top: 100px;
   &__heading {
     font-weight: 600;
     font-size: 56px;
@@ -256,41 +312,94 @@ body {
 .direction-card {
   position: relative;
   overflow: hidden;
+  height: 260px;
 
   &:hover {
-    .direction-card__body {
-      top: 0;
+    .direction-card__icon {
+      transform: rotate(-180deg);
+      transition: all .6s;
+    }
+    .direction-card__dropdown {
+      height: 100%;
+      transition: all .6s;
     }
   }
-  &__body {
-    position: absolute;
-    top: 87%;
-    right: 0;
-    left: 0;
-    min-height: 100%;
 
-    padding: 28px 20px;
+  &__image {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: -1;
+
+    font-size: 0;
+  }
+
+  &__overlay {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
+
+  &__body {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    height: 100%;
+
+    color: $font-light;
+  }
+
+  &__opener {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    min-height: 80px;
+    padding: 0 20px;
+
     background: rgba(45, 54, 83, 0.6);
   }
   &__label {
     font-weight: 600;
     font-size: 24px;
     line-height: 100%;
-    letter-spacing: 0;
-    color: $font-light;
+    letter-spacing: 0.3px;
+  }
+  &__icon {
+    opacity: 0;
+    transition: .6s;
+    font-size: 0;
+    img {
+      width: auto;
+    }
+  }
 
-    margin-bottom: 20px;
+  &__dropdown {
+    overflow-y: scroll;
+    padding: 0 20px;
+    background: rgba(45, 54, 83, 0.6);
+
+    height: 0;
+    transition: all .6s;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
   }
   &__description {
     font-weight: 400;
     font-size: 17px;
     line-height: 140%;
     letter-spacing: 0;
-    color: $font-light;
+    margin: 0;
   }
 }
 
 .motivation {
+  margin-top: 100px;
   &__wrapper {
     box-shadow: 0 0 40px 0 rgba(0, 0, 0, 0.06);
     padding: 10px 30px 3px;
@@ -326,7 +435,9 @@ body {
     display: flex;
     justify-content: center;
     align-items: flex-start;
+    flex-wrap: wrap;
     column-gap: 16px;
+    row-gap: 25px;
   }
   &__element {
     flex: 1;
@@ -344,6 +455,9 @@ body {
 
     border-radius: 50%;
     background: rgba(0, 0, 0, 0.05);
+    img {
+      max-height: 48px;
+    }
   }
   &__label {
     font-weight: 400;
@@ -351,5 +465,231 @@ body {
     line-height: 110%;
     letter-spacing: 0;
     color: $font-dark;
+  }
+}
+
+@media screen and (max-width: $breakpoint-mobile) {
+  .header {
+    &__wrapper {
+      padding-top: 16px;
+      padding-bottom: 16px;
+    }
+    &__logo {
+      flex-shrink: 0;
+    }
+  }
+
+  .navigation {
+    &__list {
+      column-gap: 10px;
+    }
+    &__item {
+      font-size: 14px;
+      line-height: 16px;
+      letter-spacing: 0.2px;
+    }
+  }
+
+  .banner {
+    margin-top: 27px;
+    &__wrapper {
+      text-align: left;
+    }
+    &__heading {
+      font-weight: 600;
+      font-size: 28px;
+      letter-spacing: 0.4px;
+
+      margin: 0 0 10px;
+    }
+    &__description {
+      font-size: 16px;
+    }
+  }
+
+  .statistics {
+    margin-top: 50px;
+    display: block;
+  }
+
+  .filter {
+    margin-top: 50px;
+    &__wrapper {
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: flex-start;
+
+      padding: 16px 0 0 5px;
+    }
+    &__list {
+      column-gap: 16px;
+    }
+    &__item {
+      font-size: 14px;
+      line-height: 16px;
+
+      padding: 20px 0 19px;
+    }
+  }
+
+  .map {
+    margin-top: 9px;
+  }
+
+  .dropdown-activator {
+    &__wrapper {
+      display: flex;
+      align-items: center;
+    }
+    &__label {
+      font-size: 20px;
+      margin-right: 6px;
+    }
+    &__icon {
+      width: 20px;
+    }
+  }
+
+  .mission {
+    padding: 32px 0;
+    margin-top: 189px;
+
+    &:before,
+    &:after {
+      width: 120px;
+      height: 154.37px;
+      top: 53%;
+    }
+    &:before {
+      background-size: cover;
+      left: -25px;
+    }
+    &:after {
+
+      background-size: cover;
+      right: -12px;
+    }
+
+    &__heading {
+      font-size: 28px;
+      line-height: 100%;
+      letter-spacing: 0.4px;
+
+      margin: 0 0 10px;
+    }
+    &__prompt {
+      font-size: 16px;
+      line-height: 130%;
+      margin: 0;
+    }
+  }
+
+  .directions {
+    margin-top: 51px;
+    &__heading {
+      font-size: 28px;
+      letter-spacing: 0.4px;
+      margin: 0 0 15px;
+    }
+    &__list {
+      flex-direction: column;
+      row-gap: 10px;
+      padding: 0 5px;
+    }
+    &__card {
+      width: 100%;
+    }
+  }
+  .direction-card {
+    height: 60px;
+    transition: all .6s;
+
+    &:hover {
+      height: 240px;
+      transition: all .6s;
+    }
+
+    &__body {
+      justify-content: flex-start;
+    }
+
+    &__opener {
+      min-height: 60px;
+      padding: 0 15px 0 10px;
+    }
+    &__label {
+      font-size: 20px;
+    }
+    &__icon {
+      opacity: 1;
+    }
+
+    &__dropdown {
+      height: 100%;
+      padding: 0 10px;
+    }
+    &__description {
+      font-size: 16px;
+      line-height: 140%;
+    }
+  }
+
+  .motivation {
+    margin-top: 50px;
+    &__wrapper {
+      padding: 0;
+    }
+    &__heading {
+      font-size: 22px;
+      line-height: 120%;
+      letter-spacing: 0.4px;
+      margin: 0 0 40px;
+
+      &_big {
+        font-size: 28px;
+        letter-spacing: 0.4px;
+        line-height: 100%;
+      }
+      &_highlight {
+        color: $primary;
+      }
+    }
+
+    &__block {
+      padding: 25px 5px;
+    }
+    &__list {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      column-gap: 10px;
+      row-gap: 25px;
+
+      max-width: 250px;
+      margin: 0 auto;
+    }
+    &__element {
+      flex: auto;
+      max-width: 120px;
+      text-align: center;
+    }
+    &__icon {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+
+      width: 80px;
+      height: 80px;
+      margin-bottom: 10px;
+
+      border-radius: 50%;
+      background: rgba(0, 0, 0, 0.05);
+      img {
+        max-height: 34.91px;
+      }
+    }
+    &__label {
+      font-size: 16px;
+    }
   }
 }
