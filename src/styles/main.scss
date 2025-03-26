@@ -1,18 +1,9 @@
-$primary: #A30C33;
-$font-dark: #444444;
-$font-light: #FFFFFF;
-
-$breakpoint-mobile: 450px;
+@use "variables" as *;
 
 @mixin drop_ul {
   padding: 0;
   margin: 0;
   list-style: none;
-}
-
-@font-face {
-  font-family: 'Proxima Nova Condensed';
-  src: url('./assets/fonts/Proxima Nova Condensed/proximanovacond_regular.ttf') format('truetype');
 }
 
 * {
@@ -25,8 +16,10 @@ body {
 
 .wrapper {
   box-sizing: border-box;
+
   width: 100%;
   max-width: 1120px;
+
   margin: 0 auto;
   padding-left: 5px;
   padding-right: 5px;
@@ -41,11 +34,13 @@ body {
 
 .layout {
   &__wrapper {
+    box-sizing: border-box;
+
     width: 100%;
     max-width: 1280px;
+
     margin: 0 auto;
     padding: 0 15px;
-    box-sizing: border-box;
   }
 }
 
@@ -256,11 +251,11 @@ body {
   }
 
   &:before {
-    background: url("./assets/image/mission_pattern_left.png") no-repeat 50% 50%;
+    background: url("../assets/image/mission_pattern_left.png") no-repeat 50% 50%;
     left: -24px;
   }
   &:after {
-    background: url("./assets/image/mission_pattern_right.png") no-repeat 50% 50%;
+    background: url("../assets/image/mission_pattern_right.png") no-repeat 50% 50%;
     right: -25px;
   }
 
